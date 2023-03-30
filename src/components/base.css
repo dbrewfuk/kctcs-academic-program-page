@@ -8556,3 +8556,8 @@ body {
 .hero__block:hover .hero__title {
   color: var(--gold);
 }
+
+.hero--splash {
+  background-image: url('./src/assets/nurse-background.jpg') !important;
+  background-size: cover;
+}
