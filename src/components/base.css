@@ -8337,6 +8337,13 @@ a.hero__logo {
 .program-contact-card__title {
   font-weight: 600;
   font-size: 20px;
+  margin-bottom: 16px;
+
+}
+
+.program-contact-card__info {
+  padding-top: 24px;
+  border-top: solid 6px var(--gold);
 
 }
 
@@ -8383,6 +8390,7 @@ a.hero__logo {
 .content-group__item {
   padding-top: 48px;
   border-top: solid 1px rgba(0,0,0,0.15);
+  gap: 56px;
 }
 
 .content-group__title {
@@ -8510,4 +8518,41 @@ a.hero__logo {
 
 .footer {
   border-top: 0 !important;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.accordion {
+  margin-top: 0;
+}
+
+.hero__main > :first-child {
+  padding-bottom: 0;
+  border-bottom: 1.5rem solid #005cb8;
+}
+
+
+@media (min-width: 720px){
+  .md\:block {
+  display: block;
+}
+}
+
+.hero__block {
+  overflow: hidden;
+}
+
+.hero__block img, .hero__block .hero__title {
+  transition: ease all 0.3s;
+}
+
+
+.hero__block:hover img {
+  transform: scale(1.125);
+}
+
+.hero__block:hover .hero__title {
+  color: var(--gold);
 }
