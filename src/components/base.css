@@ -8558,6 +8558,6 @@ body {
 }
 
 .hero--splash {
-  background-image: url('./src/assets/nurse-background.jpg') !important;
+  background-image: url('./assets/nurse-background.jpg') !important;
   background-size: cover;
 }
