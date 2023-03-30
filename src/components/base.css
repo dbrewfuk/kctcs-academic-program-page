@@ -8264,6 +8264,29 @@ a.hero__logo {
   border-bottom: 0 !important;
 }
 
+.hero--splash {
+  margin-bottom: 0 !important;
+  background-position: center;
+}
+
+.hero--splash:before {
+  display: none;
+}
+
+.page-title {
+  margin: -2rem 0 0 !important;
+}
+
+.page-title:before {
+  display: none;
+}
+
+@media (min-width: 64em){
+  .page-title {
+    margin-top: -8rem !important;
+  }
+}
+
 .intro {
   padding: 64px 0;
 }
@@ -8485,4 +8508,6 @@ a.hero__logo {
 .color-block:nth-child(7) { background-color: #011D41; }
 .color-block:nth-child(8) { background-color: #E7A614; }
 
-
+.footer {
+  border-top: 0 !important;
+}
