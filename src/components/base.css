@@ -8553,3 +8553,15 @@ body {
 }
 
 
+.card--full {
+  max-width: 100%;
+}
+
+.card--gray{
+  background: #fafafa;
+}
+
+.card__content--gray{
+  background: #fafafa;
+}
+
