@@ -6,9 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Academic Program Page - Demo</title>
     <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/tachyons-css/tachyons/master/css/tachyons.min.css"/>
     <link media="screen" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700">
-    <script type="module" crossorigin src="/assets/index-f7d59596.js"></script>
-    <link rel="stylesheet" href="/assets/index-b764de76.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-89bac44d.js"></script>
+    <link rel="stylesheet" href="/assets/index-c3f6c1e9.css">
   </head>
   <body>
     <!-- This file is suppose to mimic the /_resources/includes/header-new-hero.htm file -->
@@ -262,6 +265,7 @@
 
 </div>
 
+
     <div class="container">
       <div class="program-video">
         
@@ -295,6 +299,7 @@
           </div>
       </div>
     </div>
+
     <div class="split">
       <div class="container">
         <div class="split__container">
@@ -370,6 +375,9 @@ Classroom instruction in theory and basic nursing skills is provided on campus. 
         </div>
       </div>
     </div>
+
+
+
 
     <div class="">
       <div class="container">
@@ -1092,12 +1100,82 @@ You may take the test up to three times within one year of your training complet
 
 </div>
 
+<div class="wrky-modal">
+  <div class="wrky-modal__close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.436 27.436">
+          <path d="M1.414 0L0 1.416l12.303 12.303L0 26.022l1.414 1.414 12.303-12.303 12.305 12.303 1.414-1.416-12.303-12.303L27.436 1.414 26.022.002 13.72 12.305 1.414 0z"></path>
+        </svg>
+</div>
+  <div class="wrky-modal__button wrky-modal__trigger">
+    
+    <div class="ticker-wrapper">
+    <div class="ticker">
+      <div class="ticker-item">
+        <span>Free Tuition Eligible</span>
+          <span>Free Tuition Eligible</span>
+        <span>Free Tuition Eligible</span>
+        <span>Free Tuition Eligible</span>
+        <span>Free Tuition Eligible</span>
+        </div>
+      <div class="ticker-item">
+        <span>Free Tuition Eligible</span>
+          <span>Free Tuition Eligible</span>
+        <span>Free Tuition Eligible</span>
+        <span>Free Tuition Eligible</span>
+        <span>Free Tuition Eligible</span>
+        </div>
+      <div class="grow">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.436 27.436">
+          <path d="M1.414 0L0 1.416l12.303 12.303L0 26.022l1.414 1.414 12.303-12.303 12.305 12.303 1.414-1.416-12.303-12.303L27.436 1.414 26.022.002 13.72 12.305 1.414 0z"></path>
+        </svg>
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="wrky__card">
+    <a class="wrky__link">
+     <div class="wrky-modal__content">
+       
+       
+       <div class="wrky__media">
+         <img src="https://images.unsplash.com/photo-1619279302118-43033660826a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80"/>
+       </div>
+      <div class="wrky__content">
+       
+      <h1 class="destroy">Tuition<br/>Paid.</h1>
+      <p>Morem ipsum dolor sit amet, consectetur adipiscing elit. Morem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="wrky__cta">
+         <div class="wrky-modal__button wrky-modal__button--primary">Request Information
+      </div>
+        
+   
+         
+         </div>
+      
+    
+       
+       </div>
+        </div>
+
+     </a>
+      <div  class="wrky__footer">
+       <div class="wrky__cta">
+         <div class="wrky-modal__button wrky-modal__button--text">Find out more 
+         <span class="more"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="#00467f"><path d="m31.71 15.295-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z"/></svg>
+         </span>
+      </div>
+     
+       </div>
+         </div>
+  </div>
+
     <link rel="stylesheet" href="https://radius.kctcsweb.com/v2/css/app.css" />
     <script
       src="https://radius.kctcsweb.com/v2/js/app.js"
       type="text/javascript"
       charset="UTF-8"
     ></script>
+
 
     <script>
       const video = document.getElementById('program-video');
@@ -1116,5 +1194,15 @@ You may take the test up to three times within one year of your training complet
  
     </script>
     
+    <script>
+    $(document).ready(function(){
+  $('.wrky-modal__trigger').on('click', function(){
+                  $('.wrky-modal, .wrky__card').toggleClass('open');
+                  });
+  $('.wrky-modal__close').on('click', function(){
+                  $('.wrky-modal, .wrky__card').toggleClass('open');
+                  });
+})
+</script>
   </body>
 </html>

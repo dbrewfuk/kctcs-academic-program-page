@@ -1,0 +1,266 @@
+
+
+
+/* tokens */
+/* border-width: .125rem; /*
+
+/*WRKY Modal*/
+
+.wrky-modal {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  border-radius: 50px;
+  max-width: 400px;
+}
+
+.wrky-modal__button {
+  overflow: hidden;
+  background: #00467f;
+  color: white;
+  padding: .78125rem 2rem;
+  display: inline-block;
+  border-radius: 2.65625rem;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  transition: background-color .3s ease,color .3s ease,border-color .3s ease;
+    border: solid;
+  border-color: transparent;
+  border-width: .125rem;
+
+}
+
+.wrky__card {
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  background: white;
+}
+
+
+.wrky-modal__button:hover {
+  background-color: #fff;
+border-width: .125rem;
+  border-color: #00467f;
+color: #00467f;
+  
+}
+
+.wrky-modal__button:hover .grow {
+  background: white;
+  
+}
+
+.wrky-modal__button:hover .grow svg {
+  fill:  #00467f;
+  
+}
+
+.wrky-modal__trigger {
+  width: 11rem;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.wrky-modal__button--primary {
+  background: #00467F;
+  color: white;
+  box-shadow: none;
+  border-color: #00467F;
+}
+
+
+
+.wrky-modal__button--text {
+  background: none;
+  color: #00467F;
+  box-shadow: none;
+  border: 0;
+  text-transform: uppercase;
+  letter-spacing: .0625rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.wrky-modal__button--text:hover {
+  background: none;
+}
+
+.wrky__card {
+  max-height: 0;
+  width: 0;
+  visibility: hidden;
+  text-align: center;
+  transition: ease all 0.3s;
+  opacity: 0;
+  display: none;
+  background:  white;
+}
+.wrky__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  transition: ease all .3s;
+}
+.wrky__content {
+  padding: 32px 24px 24px 16px;
+}
+
+.wrky-modal h1 {
+  font-size: 56px;
+  margin-bottom: 8px;
+  margin-top: 0;
+  line-height: 1;
+}
+
+
+
+.wrky-modal p {
+  font-size: 20px;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.wrky-modal.open .wrky__card {
+  max-height: 1000vw;
+  width: auto;
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+}
+.wrky-modal__close {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(-100%);
+  padding: 8px 0;
+  cursor: pointer;
+  
+}
+
+.wrky-modal__close svg {
+  fill: #00467F;
+  width: 24px;
+  height: 24px;
+}
+
+.more svg {
+  opacity: 0;
+  transition: 0.3s all ease;
+  height: 2.5rem;
+  width: 0;
+  transform: translateX(-40px);
+}
+
+.wrky-modal__content__main {
+  text-decoration: none;
+  color: #00467F;
+}
+
+
+.wrky__link {
+  cursor: pointer;
+}
+
+.wrky__link:hover img {
+   transform: scale(1.1);
+}
+
+.wrky__link:hover .more svg {
+  opacity: 1;
+  width: 2.5rem;
+  margin-left: 1.5rem;
+   transform: translateX(0);
+}
+svg {
+  width: 24px;
+  height: 24px;
+}
+.wrky-modal.open .wrky-modal__close {
+  display: block;
+}
+
+.wrky__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrky-modal.open .wrky-modal__trigger {
+  display: none;
+}
+
+.ticker-wrapper {
+  max-width: 100px;
+}
+
+.grow {
+  position: absolute;
+  width: 56px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #00467F;
+  border-radius: 0 100vw 100vw 0;
+  transition: ease all 0.3s;
+  padding: 0 12px;
+}
+
+.grow svg {
+  fill: white;
+  transform: rotate(45deg);
+  height: 20px;
+  width: 20px;
+  
+}
+
+.wrky__media {
+  width: 100%;
+  aspect-ratio: 5/4;
+  background: #f3f3f3;
+  position: relative;
+  overflow: hidden;
+}
+
+.ticker {
+  display: flex;
+  flex-wrap: nowrap;
+  min-width: 100%;
+  white-space: nowrap;
+}
+.ticker-item {
+  display: flex;
+  flex-shrink: 0;
+  white-space: nowrap;
+  animation: marquee-horizontal 20s linear infinite;
+}
+
+.ticker span {
+  margin-right: 1.25rem;
+}
+
+.wrky__footer {
+  padding: 24px 0 32px;
+}
+
+
+@keyframes marquee-horizontal {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
