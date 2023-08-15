@@ -8567,14 +8567,6 @@ body {
   background: #fafafa;
 }
 
-
-
-
-/* tokens */
-/* border-width: .125rem; /*
-
-/*WRKY Modal*/
-
 @font-face {
   font-family: "Destroy";
   src: url('./src/assets/fonts/destroy.woff') format('woff');
@@ -8638,7 +8630,7 @@ color: #00467f;
 }
 
 .wrky-modal__trigger {
-  width: 10rem;
+  width: 11rem;
   overflow: hidden;
   position: relative;
 }
@@ -8729,6 +8721,8 @@ color: #00467f;
 
 .wrky-modal__close svg {
   fill: #00467F;
+  width: 24px;
+  height: 24px;
 }
 
 .more svg {
