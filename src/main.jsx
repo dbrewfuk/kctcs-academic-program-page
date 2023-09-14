@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./components/base.css";
+import Modal from "./components/modal.js";
 
 !function(t) {
     function e(r) {

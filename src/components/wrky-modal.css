@@ -29,7 +29,6 @@
     border: solid;
   border-color: transparent;
   border-width: .125rem;
-
 }
 
 .wrky__card {
@@ -37,6 +36,9 @@
   background: white;
 }
 
+.wrky-modal__icon-button:focus {
+  outline: solid 2px var(--gold);
+}
 
 .wrky-modal__button:hover {
   background-color: #fff;
@@ -59,8 +61,14 @@ color: #00467f;
 .wrky-modal__trigger {
   width: 12rem;
   overflow: hidden;
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 32px;
+  z-index: 999;
 }
+
+
 
 
 .wrky-modal__button--primary {
