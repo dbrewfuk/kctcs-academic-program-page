@@ -11,6 +11,30 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
+    <script>
+      $(document).ready(function(){
+
+      //Show video
+      $('.stories-play-button').on('click', function(){
+      event.preventDefault();
+      $('.video__modal').show();
+     
+      })
+
+      //Stop video
+      $('.video__modal--close-button').on('click', function(){
+      $('.video__modal iframe').each(function(index){
+ $('.video__modal').hide();
+      $(this).attr('src', $(this).attr('src'));
+      return false
+      })
+      })
+
+      })
+
+
+    </script>
+
   </head>
   <body>
 
@@ -32,6 +56,13 @@
       </div>
    </div>
 </div>
+
+<div class="video__modal" >
+               <div class="video__modal--flex-container">
+                  <div class="video__modal--flex-container"><button class="video__modal--close-button"><span>Close </span><span class="video__modal--close-button-icon">×</span></button></div>
+                  <div class="video__modal__video-container"><iframe src="https://www.youtube.com/embed/SwjdbOe1MkE?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" wmode="opaque"></iframe></div>
+               </div>
+            </div>
 
 
 
@@ -236,16 +267,26 @@
       </div>
       <div class="hero__main">
       
+
+      <!--Hero Story Block-->
         
         <div class="hero__block hidden md:block">
-          <a href="/student-stories/index.aspx" target="_blank">
+          <a href="#" onclick="event.preventDefault();" class="stories-play-button" target="_blank">
             <img src="./src/assets/nursing-story.jpg" alt="Student standing in manufacturing facility" width="600" height="600">
             <div class="hero__overlay">
               <p class="hero__meta">Student Stories</p>
               <p class="hero__title">Resilience: A Nurse's Story</p>
+              <span class="flex items-center bg-transparent border-none p-0 stories-play-button mt-4" role="button" aria-label="Watch the video"><span class="hero__stories-play-button__container"><span class="svg svg--icon-play hero__stories-play-button__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                       <path d="M8 5v14l11-7z"></path>
+                                       <path d="M0 0h24v24H0z" fill="none"></path></svg></span></span><span class="hero__stories-play-button__label">Watch the video</span></span>
             </div>
-          </a>
+       </a>
         </div>
+
+        <!--end Hero Story Block-->
+
+
+
       </div>
     </div>
   </div>
@@ -1290,8 +1331,8 @@ You may take the test up to three times within one year of your training complet
 
 
 
-
-<div class="wrky-modal__button wrky-modal__trigger" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
+<!--WRKY Modal-->
+<div class="wrky-modal__button wrky-modal__trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-expanded="false">
     <div class="ticker-wrapper">
         <div class="ticker">
             <div class="ticker-item">
@@ -1316,7 +1357,10 @@ You may take the test up to three times within one year of your training complet
         </div>
     </div>
 </div>
-<div class="wrky-modal">
+<div class="wrky-modal__overlay">
+
+<div class="wrky-modal__container">
+<div class="wrky-modal" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
   <div class="wrky-modal__header">
     <div class="wrky-modal__close wrky-modal__icon-button" role="button" tabindex="0" aria-label="Close modal">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.436 27.436">
@@ -1331,17 +1375,17 @@ You may take the test up to three times within one year of your training complet
                     <img src="https://images.unsplash.com/photo-1619279302118-43033660826a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80" alt="Tuition Image">
                 </div>
                 <div class="wrky__content">
-                    <h1 class="destroy">Tuition<br/>Paid.</h1>
-                    <p>Morem ipsum dolor sit amet, consectetur adipiscing elit. Morem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h1 class="destroy" id="modal-title">Tuition<br/>Paid.</h1>
+                    <p id="modal-description">Earn up to 60 credit hours tuition free. No work or apprenticeship required! Available to Kentucky residents with a high school diploma or working on their GED that don’t already have an associates degree or higher.</p>
                     <div class="wrky__cta">
-                        <a class="wrky-modal__button wrky-modal__button--primary" role="button" tabindex="0">Request Information</a>
+                        <a class="wrky-modal__button wrky-modal__button--primary" role="button" aria-label="Request Information" tabindex="0">Request Information</a>
                     </div>
                 </div>
             </div>
         </a>
         <div class="wrky__footer">
             <div class="wrky__cta">
-                <a class="wrky-modal__button--text" role="button" tabindex="0">Find out more
+                <a class="wrky-modal__button--text" role="button" aria-label="Find Out More" tabindex="0">Find out more
                     <span class="more-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="#00467f">
                             <path d="m31.71 15.295-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z"/>
@@ -1352,6 +1396,9 @@ You may take the test up to three times within one year of your training complet
         </div>
     </div>
 </div>
+</div>
+</div>
+<!--end WRKY Modal-->
 
 
     <link rel="stylesheet" href="https://radius.kctcsweb.com/v2/css/app.css" />

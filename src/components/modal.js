@@ -1,45 +1,39 @@
-document.addEventListener("click", function(event) {
-  const modal = document.querySelector(".wrky-modal");
-  const card = document.querySelector(".wrky__card");
 
-  const isModal = event.target.closest(".wrky-modal");
+
+// Cache modal-related elements
+const modal = document.querySelector(".wrky-modal__overlay");
+const card = document.querySelector(".wrky__card");
+const toggler = document.querySelector(".wrky-modal__trigger");
+
+document.addEventListener("click", function (event) {
+  const isModal = event.target.closest(".wrky-modal__overlay");
   const isTrigger = event.target.closest(".wrky-modal__trigger");
   const isClose = event.target.closest(".wrky-modal__close");
 
-  if (!isModal && !isTrigger && modal.classList.contains("open")) {
-    closeModal(modal, card);
-  }
 
   if (isTrigger || isClose) {
-    toggleModal(modal, card);
+    toggleModal();
+  } else if (!isModal && modal.classList.contains("open")) {
+    closeModal();
   }
 });
 
-document.addEventListener("keydown", function(event) {
-  const modal = document.querySelector(".wrky-modal");
-  const card = document.querySelector(".wrky__card");
-
-  const isModal = event.target.closest(".wrky-modal");
-  const isTrigger = event.target.closest(".wrky-modal__trigger");
-  const isClose = event.target.closest(".wrky-modal__close");
-
+document.addEventListener("keydown", function (event) {
   if (event.key === "Escape" && modal.classList.contains("open")) {
-    closeModal(modal, card);
-  }
-
-  if (isTrigger || isClose) {
-    toggleModal(modal, card);
+    closeModal();
   }
 });
 
-function closeModal(modal, card) {
+function closeModal() {
   modal.classList.remove("open");
   card.classList.remove("open");
+  toggler.classList.remove("hidden");
 }
 
-function toggleModal(modal, card) {
+function toggleModal() {
   modal.classList.toggle("open");
   card.classList.toggle("open");
+  toggler.classList.toggle("hidden");
 }
 
 

@@ -10,10 +10,75 @@
     <link media="screen" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script type="module" crossorigin src="/assets/index-b48bb82d.js"></script>
-    <link rel="stylesheet" href="/assets/index-3a5a772c.css">
+
+    <script>
+      $(document).ready(function(){
+
+      //Show video
+      $('.stories-play-button').on('click', function(){
+      event.preventDefault();
+      $('.video__modal').show();
+     
+      })
+
+      //Stop video
+      $('.video__modal--close-button').on('click', function(){
+      $('.video__modal iframe').each(function(index){
+ $('.video__modal').hide();
+      $(this).attr('src', $(this).attr('src'));
+      return false
+      })
+      })
+
+      })
+
+
+    </script>
+
+    <script type="module" crossorigin src="/assets/index-8e572016.js"></script>
+    <link rel="stylesheet" href="/assets/index-9c067f84.css">
   </head>
   <body>
+
+
+<div class="program-video-modal" role="dialog">
+   <div class="program-video-modal__flex-container">
+      <div class="program-video-modal__header"> 
+         <button class="program-video-modal__close-button" aria-label="Close Modal">
+            <span>Close </span>
+            <span class="program-video-modal__close-button-icon">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.436 27.436">
+                  <path d="M1.414 0L0 1.416l12.303 12.303L0 26.022l1.414 1.414 12.303-12.303 12.305 12.303 1.414-1.416-12.303-12.303L27.436 1.414 26.022.002 13.72 12.305 1.414 0z"></path>
+               </svg>
+            </span>
+         </button>
+      </div>
+      <div class="program-video-modal__video-container">
+         <iframe src="https://www.youtube.com/embed/Yes?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" wmode="opaque"></iframe>
+      </div>
+   </div>
+</div>
+
+<div class="video__modal" >
+               <div class="video__modal--flex-container">
+                  <div class="video__modal--flex-container"><button class="video__modal--close-button"><span>Close </span><span class="video__modal--close-button-icon">×</span></button></div>
+                  <div class="video__modal__video-container"><iframe src="https://www.youtube.com/embed/SwjdbOe1MkE?wmode=transparent" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" wmode="opaque"></iframe></div>
+               </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- This file is suppose to mimic the /_resources/includes/header-new-hero.htm file -->
     <div class="nh-canvas">
      
@@ -204,16 +269,26 @@
       </div>
       <div class="hero__main">
       
+
+      <!--Hero Story Block-->
         
         <div class="hero__block hidden md:block">
-          <a href="/student-stories/index.aspx" target="_blank">
+          <a href="#" onclick="event.preventDefault();" class="stories-play-button" target="_blank">
             <img src="/assets/nursing-story-c6121e85.jpg" alt="Student standing in manufacturing facility" width="600" height="600">
             <div class="hero__overlay">
               <p class="hero__meta">Student Stories</p>
               <p class="hero__title">Resilience: A Nurse's Story</p>
+              <span class="flex items-center bg-transparent border-none p-0 stories-play-button mt-4" role="button" aria-label="Watch the video"><span class="hero__stories-play-button__container"><span class="svg svg--icon-play hero__stories-play-button__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                       <path d="M8 5v14l11-7z"></path>
+                                       <path d="M0 0h24v24H0z" fill="none"></path></svg></span></span><span class="hero__stories-play-button__label">Watch the video</span></span>
             </div>
-          </a>
+       </a>
         </div>
+
+        <!--end Hero Story Block-->
+
+
+
       </div>
     </div>
   </div>
@@ -266,8 +341,162 @@
 </div>
 
 
-    <div class="container">
-      <div class="program-video">
+ <div class="program-video">
+  <style>
+    /* CSS code for .program-video */
+    .program-video {
+      position: relative;
+    }
+    
+    .program-video__wrapper {
+      aspect-ratio: 16/9;
+      padding: 0;
+    }
+    
+    .program-video__container {
+      padding: 0;
+      position: relative;
+    }
+    
+    .program-video__meta {
+      font-weight: 600;
+      font-size: 20px;
+    }
+    
+    .program-video__title {
+      font-size: 48px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    
+    .program-video video {
+      width: 100%;
+    }
+    
+    .program-video__content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .program-video__play-pause {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .program-video:hover .program-video__play-pause {
+      opacity: 1;
+    }
+    
+    .program-video__play-pause-icon {
+      color: white;
+      font-size: 48px;
+    }
+    .hero__control {
+      display: block;
+    }
+    .program-video__caption {
+      display: inline-flex;
+      padding-top: 0.5rem;
+    }
+  </style>
+
+  <div class="program-video__container">
+    <div class="program-video__wrapper">
+      <iframe src="https://player.vimeo.com/video/826213333?background=1&amp;autoplay=1&amp;loop=1&amp;byline=0&amp;title=0" id="pvideo" frameborder="0" width="100%" height="100%"
+      title="hero-video"></iframe>
+    </div>
+    
+    <!-- Add play and pause button -->
+    <button id="pause-button" class="hero__control" data-playing></button>
+  </div>
+  
+  <div class="container">
+    <a class="program-video__caption" href="[[748bc3431193487296bcfed978a74e41]]">Audio transcribed video available on YouDescribe (will open in new tab)</a>
+  </div>
+
+</div>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/froogaloop.js"></script>
+  <script>
+    // Froogaloop
+// https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/froogaloop.js
+// https://github.com/vimeo/player-api/blob/master/javascript/froogaloop.js
+// https://a.vimeocdn.com/js/froogaloop2.min.js
+
+var iframe = document.getElementById('pvideo');
+
+// $f == Froogaloop
+var player = $f(iframe);
+var playIcon = document.getElementById("play-icon");
+var pauseIcon = document.getElementById("pause-icon");
+var pauseButton = document.getElementById("pause-button");
+
+pauseButton.addEventListener("click", function() {
+
+  if(pauseButton.classList.contains("is-active")) {
+    player.api("play");
+    pauseButton.classList.remove("is-active");
+    pauseButton.setAttribute('data-playing','');
+
+  } else {
+    player.api("pause");
+    pauseButton.classList.add("is-active");
+    pauseButton.removeAttribute('data-playing');
+  }
+
+});
+  </script>
+
+
+
+
+   <!-- <div class="program-video">
+      <div class="program-video__container">
+
+        
+        <video id="program-video"
+          preload="none"
+          poster
+          playsinline
+          autoplay
+          muted
+          loop=""
+          src="https://www.dropbox.com/s/idhtn5slv5l5psk/nursing.mp4?raw=1"
+        >
+          <source
+            src="https://www.dropbox.com/s/idhtn5slv5l5psk/nursing.mp4?raw=1"
+            type="video/mp4"
+          />
+        </video>
+      
+
+            <div class="program-video__play-button">
+              <svg class="program-video__play-icon" width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32.5 64.5C50.1731 64.5 64.5 50.1731 64.5 32.5C64.5 14.8269 50.1731 0.5 32.5 0.5C14.8269 0.5 0.5 14.8269 0.5 32.5C0.5 50.1731 14.8269 64.5 32.5 64.5ZM24.5 46.3564L48.5 32.5L24.5 18.6436L24.5 46.3564Z"/>
+              </svg>
+    
+                
+              </div>
+        
+      </div>
+    </div>-->
+
+<!--
+     <div class="program-video">
+      <div class="program-video__container">
+
         
         <video id="program-video"
           preload="none"
@@ -284,21 +513,23 @@
           />
         </video>
         <div class="program-video__content">
-            <!--<div class="program-video__meta">Rebecca Edmonson</div>
-            <div class="program-video__title">The Path to RN</div>-->
-            <!--<div id="play-button">
+            <div class="program-video__meta">Rebecca Edmonson</div>
+            <div class="program-video__title">The Path to RN</div>
+            <div id="play-button">
               <svg class="play-icon" width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M32.5 64.5C50.1731 64.5 64.5 50.1731 64.5 32.5C64.5 14.8269 50.1731 0.5 32.5 0.5C14.8269 0.5 0.5 14.8269 0.5 32.5C0.5 50.1731 14.8269 64.5 32.5 64.5ZM24.5 46.3564L48.5 32.5L24.5 18.6436L24.5 46.3564Z" fill="white"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32.5 64.5C50.1731 64.5 64.5 50.1731 64.5 32.5C64.5 14.8269 50.1731 0.5 32.5 0.5C14.8269 0.5 0.5 14.8269 0.5 32.5C0.5 50.1731 14.8269 64.5 32.5 64.5ZM24.5 46.3564L48.5 32.5L24.5 18.6436L24.5 46.3564Z"/>
               </svg>
               <svg class="pause-icon" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M32 0C14.336 0 0 14.336 0 32C0 49.664 14.336 64 32 64C49.664 64 64 49.664 64 32C64 14.336 49.664 0 32 0ZM28.8 44.8H22.4V19.2H28.8V44.8ZM41.6 44.8H35.2V19.2H41.6V44.8Z" fill="white"/>
 </svg>
 
                 
-              </div>-->
+              </div>
           </div>
       </div>
     </div>
+
+  -->
 
     <div class="split">
       <div class="container">
@@ -1100,74 +1331,77 @@ You may take the test up to three times within one year of your training complet
 
 </div>
 
-<div class="wrky-modal">
-  <div class="wrky-modal__close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.436 27.436">
-          <path d="M1.414 0L0 1.416l12.303 12.303L0 26.022l1.414 1.414 12.303-12.303 12.305 12.303 1.414-1.416-12.303-12.303L27.436 1.414 26.022.002 13.72 12.305 1.414 0z"></path>
-        </svg>
-</div>
-  <div class="wrky-modal__button wrky-modal__trigger">
-    
+
+
+<!--WRKY Modal-->
+<div class="wrky-modal__button wrky-modal__trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-expanded="false">
     <div class="ticker-wrapper">
-    <div class="ticker">
-      <div class="ticker-item">
-        <span>Free Tuition Eligible</span>
-          <span>Free Tuition Eligible</span>
-        <span>Free Tuition Eligible</span>
-        <span>Free Tuition Eligible</span>
-        <span>Free Tuition Eligible</span>
+        <div class="ticker">
+            <div class="ticker-item">
+                <span>Free Tuition Eligible</span>
+                <span>Free Tuition Eligible</span>
+                <span>Free Tuition Eligible</span>
+                <span>Free Tuition Eligible</span>
+                <span>Free Tuition Eligible</span>
+            </div>
+            <div class="ticker-item">
+                <span>Free Tuition Eligible</span>
+                <span>Free Tuition Eligible</span>
+                <span>Free Tuition Eligible</span>
+                <span>Free Tuition Eligible</span>
+                <span>Free Tuition Eligible</span>
+            </div>
+            <div class="grow">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.436 27.436">
+                    <path d="M1.414 0L0 1.416l12.303 12.303L0 26.022l1.414 1.414 12.303-12.303 12.305 12.303 1.414-1.416-12.303-12.303L27.436 1.414 26.022.002 13.72 12.305 1.414 0z"></path>
+                </svg>
+            </div>
         </div>
-      <div class="ticker-item">
-        <span>Free Tuition Eligible</span>
-          <span>Free Tuition Eligible</span>
-        <span>Free Tuition Eligible</span>
-        <span>Free Tuition Eligible</span>
-        <span>Free Tuition Eligible</span>
-        </div>
-      <div class="grow">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.436 27.436">
-          <path d="M1.414 0L0 1.416l12.303 12.303L0 26.022l1.414 1.414 12.303-12.303 12.305 12.303 1.414-1.416-12.303-12.303L27.436 1.414 26.022.002 13.72 12.305 1.414 0z"></path>
-        </svg>
+    </div>
 </div>
-      </div>
+<div class="wrky-modal__overlay">
+
+<div class="wrky-modal__container">
+<div class="wrky-modal" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+  <div class="wrky-modal__header">
+    <div class="wrky-modal__close wrky-modal__icon-button" role="button" tabindex="0" aria-label="Close modal">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.436 27.436">
+            <path d="M1.414 0L0 1.416l12.303 12.303L0 26.022l1.414 1.414 12.303-12.303 12.305 12.303 1.414-1.416-12.303-12.303L27.436 1.414 26.022.002 13.72 12.305 1.414 0z"></path>
+        </svg>
     </div>
   </div>
-  
-  <div class="wrky__card">
-    <a class="wrky__link">
-     <div class="wrky-modal__content">
-       
-       
-       <div class="wrky__media">
-         <img src="https://images.unsplash.com/photo-1619279302118-43033660826a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80"/>
-       </div>
-      <div class="wrky__content">
-       
-      <h1 class="destroy">Tuition<br/>Paid.</h1>
-      <p>Morem ipsum dolor sit amet, consectetur adipiscing elit. Morem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <div class="wrky__cta">
-         <div class="wrky-modal__button wrky-modal__button--primary">Request Information
-      </div>
-        
-   
-         
-         </div>
-      
-    
-       
-       </div>
+    <div class="wrky__card">
+        <a class="wrky__link">
+            <div class="wrky-modal__content">
+                <div class="wrky__media">
+                    <img src="https://images.unsplash.com/photo-1619279302118-43033660826a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80" alt="Tuition Image">
+                </div>
+                <div class="wrky__content">
+                    <h1 class="destroy" id="modal-title">Tuition<br/>Paid.</h1>
+                    <p id="modal-description">Earn up to 60 credit hours tuition free. No work or apprenticeship required! Available to Kentucky residents with a high school diploma or working on their GED that don’t already have an associates degree or higher.</p>
+                    <div class="wrky__cta">
+                        <a class="wrky-modal__button wrky-modal__button--primary" role="button" aria-label="Request Information" tabindex="0">Request Information</a>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div class="wrky__footer">
+            <div class="wrky__cta">
+                <a class="wrky-modal__button--text" role="button" aria-label="Find Out More" tabindex="0">Find out more
+                    <span class="more-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="#00467f">
+                            <path d="m31.71 15.295-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
         </div>
+    </div>
+</div>
+</div>
+</div>
+<!--end WRKY Modal-->
 
-     </a>
-      <div  class="wrky__footer">
-       <div class="wrky__cta">
-         <div class="wrky-modal__button wrky-modal__button--text">Find out more 
-         <span class="more"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="#00467f"><path d="m31.71 15.295-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z"/></svg>
-         </span>
-      </div>
-     
-       </div>
-         </div>
-  </div>
 
     <link rel="stylesheet" href="https://radius.kctcsweb.com/v2/css/app.css" />
     <script
@@ -1177,22 +1411,52 @@ You may take the test up to three times within one year of your training complet
     ></script>
 
 
-    <script>
-      const video = document.getElementById('program-video');
-      const playButton = document.getElementById('play-button');
-       playButton.addEventListener('click', () => {
-         this
-         if (video.paused) {
-           video.play();
-           video.muted = false;
-           playButton.classList.add('playing');
-         } else {
-           video.pause();
-           playButton.classList.remove('playing');
-         }
-       });
- 
-    </script>
+   <script>
+  const video = document.getElementById('program-video');
+  const playButton = document.querySelector('.program-video__play-button');
+  const videoModal = document.querySelector('.program-video-modal');
+  const closeModal = document.querySelector('.program-video-modal__close-button');
+
+  playButton.addEventListener('click', () => {
+    // Toggle modal visibility
+    const isOpen = videoModal.classList.toggle('showing');
+    
+    // Set aria-expanded attribute
+    playButton.setAttribute('aria-expanded', isOpen);
+
+    // Set focus to close button when modal opens
+    if (isOpen) {
+      closeModal.focus();
+    }
+  });
+
+  closeModal.addEventListener('click', () => {
+    videoModal.classList.remove('showing');
+    videoModal.pause();
+
+    // Set aria-expanded attribute
+    playButton.setAttribute('aria-expanded', false);
+
+    // Set focus back to play button when modal closes
+    playButton.focus();
+  });
+
+  // Handle keyboard events
+  playButton.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      // Trigger click event on Enter key press
+      playButton.click();
+    }
+  });
+  
+  closeModal.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      // Trigger click event on Enter key press
+      closeModal.click();
+    }
+  });
+</script>
+
     
    
   </body>
